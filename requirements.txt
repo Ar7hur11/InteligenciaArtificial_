@@ -7,3 +7,5 @@ Pillow
 PyYAML
 tqdm
 scikit-learn
+albumentations
+opencv-python
