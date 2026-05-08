@@ -14,13 +14,17 @@ TARGET_SIZE = (448, 288)
 
 # Augmentation forçado para você ver a mudança (p=1.0)
 transform = A.Compose([
-    A.Resize(height=TARGET_SIZE[1], width=TARGET_SIZE[0]),
+    A.Resize(
+    height=TARGET_SIZE[1],
+    width=TARGET_SIZE[0],
+    interpolation=cv2.INTER_CUBIC
+),
     A.Affine(shear=(-8, 8), scale=(0.9, 1.1), p=1.0), 
     A.RandomBrightnessContrast(p=0.3),
 ])
 
 def processar():
-    # Focando apenas no seu teste atual: testing -> test
+    # Focando apenas no teste atual: testing -> test
     pasta_origem = "testing"
     split_destino = "test"
     
@@ -30,6 +34,7 @@ def processar():
     lbl_target = os.path.join(OUTPUT_LBL_DIR, split_destino)
     
     # Cria as pastas na marra
+    
     os.makedirs(img_target, exist_ok=True)
     os.makedirs(lbl_target, exist_ok=True)
 

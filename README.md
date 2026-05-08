@@ -1,11 +1,12 @@
 # Projeto IA — Classificação de Imagens com YOLO
 
-Trabalho acadêmico de Inteligência Artificial.
+Trabalho acadêmico de Inteligência Artificial./ comparação do yolov2 com um maior (v8 por exemplo);
+
 
 ## Integrantes
 - Arthur Campos Rezende
 - Caio Fontes
-- Danyelle
+- Danyelle machado 
 - João Vitor
 - Gustavo falcão 
 - Alberto Branco 
