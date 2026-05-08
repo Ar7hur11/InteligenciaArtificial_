@@ -17,21 +17,26 @@ Inteligência artificial modelada e treinada para identificar letras e números 
 
 ### 1. Clonar o repositório
 ```bash
-git clone https://github.com/seu-usuario/seu-repo.git
-cd seu-repo
+git clone https://github.com/Ar7hur11/InteligenciaArtificial_.git
+cd InteligenciaArtificial_
 ```
 
 ### 2. Criar ambiente virtual e instalar dependências
 ```bash
-python -m venv venv
-source venv/bin/activate   # Mac/Linux
+python -m venv venv   
+source venv/bin/activate   # Mac/Linux 
 venv\Scripts\activate      # Windows
 
+pip install -r requirements.txt
+
+#no meu so foi quando eu fiz assim 
+.\.venv\Scripts\activate
+# e dps
 pip install -r requirements.txt
 ```
 
 ### 3. Adicionar os dados
-Coloque as imagens em `data/raw/` e configure `data.yaml` com suas classes.
+Coloque as imagens em `data/raw/` e configure `data.yaml` com suas classes. #to fazendo isso agora
 
 ### 4. Treinar
 ```bash
