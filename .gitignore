@@ -1,0 +1,38 @@
+# Ambiente Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# Dados e modelos (arquivos grandes)
+data/raw/*
+data/processed/*
+data/labels/*
+models/*
+
+# Mantém as pastas visíveis no repositório
+!data/raw/.gitkeep
+!data/processed/images/train/.gitkeep
+!data/processed/images/val/.gitkeep
+!data/processed/images/test/.gitkeep
+!data/labels/train/.gitkeep
+!data/labels/val/.gitkeep
+!data/labels/test/.gitkeep
+!models/.gitkeep
+
+# YOLO outputs
+runs/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Segredos
+.env
+
+# IDEs e sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

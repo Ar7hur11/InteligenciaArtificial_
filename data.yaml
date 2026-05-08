@@ -1,0 +1,14 @@
+# Configuração do dataset para YOLO
+path: ./data
+
+train: processed/images/train
+val:   processed/images/val
+test:  processed/images/test
+
+# Número de classes — ajuste conforme seu projeto
+nc: 2
+
+# Nomes das classes — ajuste conforme seu projeto
+names:
+  0: classe_a
+  1: classe_b
