@@ -16,6 +16,7 @@ def prever(caminho_imagem: str, pesos: str = PESOS, salvar: bool = True):
     Roda o modelo em uma imagem e exibe/salva o resultado.
     - caminho_imagem: path para a imagem ou pasta de imagens
     - salvar: se True, salva o resultado em runs/predict/
+    -teste
     """
     model = carregar_modelo(pesos=pesos)
 
