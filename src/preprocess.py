@@ -12,8 +12,8 @@ OUTPUT_IMG_DIR = os.path.join(BASE_DIR, "data", "processed", "images")
 OUTPUT_LBL_DIR = os.path.join(BASE_DIR, "data", "labels")
 TARGET_SIZE = (640, 640)
 
-# INTER_AREA é o melhor para downsizing (evita pixelização/aliasing)
-# Affine e brilho/contraste aplicados só na augmentation de treino (p<1.0)
+# Pré-processamento: apenas redimensiona mantendo proporção + padding cinza YOLO
+# Augmentation (distorção, brilho) é responsabilidade do YOLO durante o treino
 transform = A.Compose([
     A.LongestMaxSize(max_size=max(TARGET_SIZE), interpolation=cv2.INTER_AREA),
     A.PadIfNeeded(
@@ -22,8 +22,6 @@ transform = A.Compose([
         border_mode=cv2.BORDER_CONSTANT,
         value=(114, 114, 114),
     ),
-    A.Affine(shear=(-8, 8), scale=(0.9, 1.1), p=0.5),
-    A.RandomBrightnessContrast(p=0.3),
 ])
 
 def processar():
