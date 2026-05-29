@@ -10,16 +10,19 @@ BASE_DIR = os.path.abspath(os.getcwd())
 INPUT_DIR = os.path.join(BASE_DIR, "data", "raw")
 OUTPUT_IMG_DIR = os.path.join(BASE_DIR, "data", "processed", "images")
 OUTPUT_LBL_DIR = os.path.join(BASE_DIR, "data", "labels")
-TARGET_SIZE = (448, 288)
+TARGET_SIZE = (640, 640)
 
-# Augmentation forçado para você ver a mudança (p=1.0)
+# INTER_AREA é o melhor para downsizing (evita pixelização/aliasing)
+# Affine e brilho/contraste aplicados só na augmentation de treino (p<1.0)
 transform = A.Compose([
-    A.Resize(
-    height=TARGET_SIZE[1],
-    width=TARGET_SIZE[0],
-    interpolation=cv2.INTER_CUBIC
-),
-    A.Affine(shear=(-8, 8), scale=(0.9, 1.1), p=1.0), 
+    A.LongestMaxSize(max_size=max(TARGET_SIZE), interpolation=cv2.INTER_AREA),
+    A.PadIfNeeded(
+        min_height=TARGET_SIZE[1],
+        min_width=TARGET_SIZE[0],
+        border_mode=cv2.BORDER_CONSTANT,
+        value=(114, 114, 114),
+    ),
+    A.Affine(shear=(-8, 8), scale=(0.9, 1.1), p=0.5),
     A.RandomBrightnessContrast(p=0.3),
 ])
 
