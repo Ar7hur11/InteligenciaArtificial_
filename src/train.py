@@ -5,9 +5,10 @@ Script principal de treinamento do modelo YOLO.
 from model import carregar_modelo
 from pathlib import Path
 
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # ── Configurações ──────────────────────────────────────────
-DATA_YAML   = "data.yaml"
+DATA_YAML   = str(BASE_DIR / "data.yaml")
 TAMANHO     = "nano"      # nano | small | medium | large | xlarge
 EPOCAS      = 50
 TAMANHO_IMG = 640

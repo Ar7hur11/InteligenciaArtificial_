@@ -9,7 +9,7 @@ import numpy as np
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 INPUT_DIR = os.path.join(BASE_DIR, "data", "raw")
 OUTPUT_IMG_DIR = os.path.join(BASE_DIR, "data", "processed", "images")
-OUTPUT_LBL_DIR = os.path.join(BASE_DIR, "data", "labels")
+OUTPUT_LBL_DIR = os.path.join(BASE_DIR, "data", "processed", "labels")
 TARGET_SIZE = (640, 640)
 
 # Pré-processamento: apenas redimensiona mantendo proporção + padding cinza YOLO
